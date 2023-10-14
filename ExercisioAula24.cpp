@@ -61,14 +61,14 @@ void IncluirEstado(vector<Estado>& estados) {
     do {
         string nome, sigla;
         cout << "Informe o nome do estado: ";
-        cin.ignore(); // Ignora caracteres pendentes no buffer, se houver
+        cin.ignore(); 
         getline(cin, nome);
         cout << "Informe a sigla do estado: ";
         cin >> sigla;
         Estado novoEstado(nome, sigla);
 
         string nomeCidade;
-        cin.ignore(); // Ignora caracteres pendentes no buffer, se houver
+        cin.ignore(); 
         cout << "Informe o nome da cidade: ";
         getline(cin, nomeCidade);
         Cidade novaCidade(nomeCidade);
