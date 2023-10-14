@@ -25,7 +25,7 @@ int main() {
     vector<Cidade> cidades;
 
     // Lê informações dos estados
-    int numEstados;
+    int numEstados = 0;
     cout << "Quantos estados deseja cadastrar? ";
     cin >> numEstados;
     cin.ignore(); // Limpa o buffer
@@ -43,7 +43,7 @@ int main() {
     }
 
     // Lê informações das cidades
-    int numCidades;
+    int numCidades = 0;
     cout << "Quantas cidades deseja cadastrar? ";
     cin >> numCidades;
     cin.ignore(); // Limpa o buffer
@@ -55,13 +55,13 @@ int main() {
         getline(cin, nome);
 
         cout << "Selecione o estado da cidade " << i + 1 << ":" << endl;
-        for (int j = 0; j < estados.size(); j++) {
+        for (int j = 0; j < numEstados; j++) {
             cout << j + 1 << ". " << estados[j].nome << " (" << estados[j].sigla << ")" << endl;
         }
         cin >> estadoIndex;
         cin.ignore(); // Limpa o buffer
 
-        if (estadoIndex >= 1 && estadoIndex <= estados.size()) {
+        if (estadoIndex >= 1 && estadoIndex <= numEstados) {
             Cidade cidade(nome, &estados[estadoIndex - 1]);
             cidades.push_back(cidade);
         } else {
@@ -71,13 +71,13 @@ int main() {
 
     // Exibe os estados e cidades cadastrados
     cout << "Estados cadastrados:" << endl;
-    for (const Estado& estado : estados) {
-        cout << estado.nome << " (" << estado.sigla << ")" << endl;
+    for (int i = 0; i < numEstados; i++) {
+        cout << estados[i].nome << " (" << estados[i].sigla << ")" << endl;
     }
 
     cout << "Cidades cadastradas:" << endl;
-    for (const Cidade& cidade : cidades) {
-        cout << cidade.nome << " - " << cidade.estado->nome << " (" << cidade.estado->sigla << ")" << endl;
+    for (int i = 0; i < numCidades; i++) {
+        cout << cidades[i].nome << " - " << cidades[i].estado->nome << " (" << cidades[i].estado->sigla << ")" << endl;
     }
 
     return 0;
