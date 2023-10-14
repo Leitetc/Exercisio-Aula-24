@@ -92,7 +92,7 @@ void ListarEstados(vector<Estado>& estados) {
     cout << endl << "Lista de Estados:" << endl;
     for (Estado& estado : estados) {
         cout << "Estado: " << estado.getNome() << " - " << estado.getSigla() << endl;
-        cout << "Cidades: ";
+        cout << "Cidade: ";
         for (Cidade& cidade : estado.getCidades()) {
             cout << cidade.getNomec() << " ";
         }
